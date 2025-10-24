@@ -1,0 +1,89 @@
+/* Letterboxd website colors */
+:root {
+	--letterboxd-gray: #212830;
+	--letterboxd-black: #14181b;
+	--letterboxd-blue: #5cbcf2;
+	--letterboxd-white: #f0f2f3;
+}
+
+body {
+	background: var(--letterboxd-gray);
+}
+
+/* Popup container */
+.extension {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: var(--letterboxd-white);
+	width: 200px;
+	height: 150px;
+	margin-top: -15px;
+}
+
+.extension__logo {
+	width: 160px;
+}
+
+/* Flexbox for label and switch */
+.extension__toggle-container {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	width: 100%;
+	gap: 10px;
+}
+
+/* Written label */
+.extension__toggle-text {
+	padding-top: 2px;
+}
+
+/* Container for the switch */
+.extension__toggle-switch {
+	position: relative;
+	left: -7px;
+	width: 50px;
+	height: 24px;
+}
+
+/* Hide default checkbox */
+.extension__toggle-checkbox {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The track */
+.extension__toggle-slider {
+	position: absolute;
+	cursor: pointer;
+	background-color: var(--letterboxd-black);
+	border-radius: 24px;
+	width: 100%;
+	height: 100%;
+	transition: background-color 0.3s;
+}
+
+/* The circular slider */
+.extension__toggle-slider::before {
+	content: '';
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 4px;
+	bottom: 2px;
+	background-color: var(--letterboxd-white);
+	border-radius: 50%;
+	transition: transform 0.3s;
+}
+
+/* Toggled state */
+.extension__toggle-checkbox:checked + .extension__toggle-slider {
+	background-color: var(--letterboxd-blue);
+}
+
+.extension__toggle-checkbox:checked + .extension__toggle-slider::before {
+	transform: translateX(22px);
+}
